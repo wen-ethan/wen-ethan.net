@@ -145,6 +145,40 @@
     margin-bottom: 1.25rem;
 }
 
+/* Bulma gives strong a near-black colour and links its blue; both vanish or
+   clash on the dark glass, so inline emphasis is restated here. */
+.blog-body strong {
+    color: rgba(255, 255, 255, 0.95);
+    font-weight: 600;
+}
+
+/* Prose links only -- the back-link pill also sits inside .blog-body. */
+.blog-body p a,
+.blog-body li a,
+.blog-body figcaption a {
+    color: white;
+    text-decoration: underline;
+    text-underline-offset: 0.15em;
+    text-decoration-color: rgba(255, 255, 255, 0.4);
+    transition: text-decoration-color 0.15s ease;
+}
+
+.blog-body p a:hover,
+.blog-body li a:hover,
+.blog-body figcaption a:hover {
+    color: white;
+    text-decoration-color: white;
+}
+
+.blog-body code {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 0.88em;
+    padding: 0.1em 0.4em;
+    border-radius: 6px;
+    color: rgba(255, 255, 255, 0.92);
+    background: rgba(255, 255, 255, 0.1);
+}
+
 /* Bulma's reset strips list-style and padding, so both are restored here
    rather than inherited. Markers sit outside the text block so wrapped lines
    stay aligned with the first line. */

@@ -4,9 +4,8 @@ dist
 assets/.DS_Store
 assets/projects/.DS_Store
 SITE_OVERVIEW.md
+__pycache__
 
-# Local authoring files, not part of the deployed site.
-# content/ holds the Markdown sources for blog writeups; tools/ holds the
-# scripts that generate page components from them.
-content
-tools
+# content/ (Markdown sources for writeups) and tools/ (the script that builds
+# page components from them) are tracked: the generated .jsx is committed, so
+# its source has to be too or a fresh clone cannot edit a post.
