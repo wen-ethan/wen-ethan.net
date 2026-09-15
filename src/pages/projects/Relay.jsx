@@ -3,6 +3,8 @@ import Background from '../../components/Background'
 import Nav from '../../components/Nav'
 import Footer from '../../components/Footer'
 import Carousel from '../../components/Carousel'
+import ProjectNav from '../../components/ProjectNav'
+import { findProject } from '../../data/projects'
 import '../../styles/project-page.css'
 
 const slides = [
@@ -15,6 +17,7 @@ const slides = [
 ]
 
 export default function Relay() {
+  const project = findProject('relay')
   return (
     <>
       <Background />
@@ -27,6 +30,7 @@ export default function Relay() {
               <span key={t} className="tag is-dark">{t}</span>
             ))}
           </div>
+          <p className="project-meta">{project.date}</p>
         </header>
 
         <div className="project-grid">
@@ -40,11 +44,17 @@ export default function Relay() {
               Each system started as an engineering design doc before any code — how the data is modeled in Firestore, which writes have to be transactional, what the security rules enforce, and how the feature holds up under abuse or unexpected scale. One doc caught a set of non-transactional writes that would have left records inconsistent in production. Writing the docs first has been the most useful habit on the project.
             </p>
 
+            <div className="project-links">
+              <a className="button is-link is-light" href="https://relay-app.xyz/" target="_blank" rel="noreferrer">Live Web Build</a>
+            </div>
+
             <div className="project-footer">
               <Link className="back-link" to="/projects">← Back to projects</Link>
             </div>
           </div>
         </div>
+
+        <ProjectNav slug="relay" />
       </section>
 
       <Footer />

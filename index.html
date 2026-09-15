@@ -14,9 +14,34 @@
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <title>Ethan Wen</title>
+    <!--
+      Defaults for the home page. tools/prerender.mjs rewrites these per route
+      after the build (title, description, og:url, og:image, canonical), so a
+      shared project link previews as that project even though this is an SPA.
+      Keep the exact attribute layout: the script matches on it.
+    -->
+    <meta name="description" content="Princeton ECE student interested in digital design, embedded systems, and the boundary between hardware and software." />
+    <meta name="theme-color" content="#543a67" />
+    <link rel="canonical" href="https://wen-ethan.net/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Ethan Wen" />
+    <meta property="og:title" content="Ethan Wen" />
+    <meta property="og:description" content="Princeton ECE student interested in digital design, embedded systems, and the boundary between hardware and software." />
+    <meta property="og:url" content="https://wen-ethan.net/" />
+    <meta property="og:image" content="https://wen-ethan.net/projects/serial-vga-display/serial_vga_display_thumbnail.jpeg" />
+    <meta name="twitter:card" content="summary_large_image" />
   </head>
   <body>
+    <!--
+      Tint sources for iOS Safari's status bar and toolbar. Safari 26+ colours
+      its chrome from a position:fixed element touching the viewport edge and
+      ignores theme-color. They live here, after #root, because Safari did not
+      sample them when they were nested inside the fixed .bg layer. Styled only
+      under the iOS @supports block in main.css; inert everywhere else.
+    -->
     <div id="root"></div>
+    <div class="bg-edge bg-edge-top"></div>
+    <div class="bg-edge bg-edge-bottom"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>

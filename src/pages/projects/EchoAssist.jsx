@@ -3,6 +3,8 @@ import Background from '../../components/Background'
 import Nav from '../../components/Nav'
 import Footer from '../../components/Footer'
 import Carousel from '../../components/Carousel'
+import ProjectNav from '../../components/ProjectNav'
+import { findProject } from '../../data/projects'
 import '../../styles/project-page.css'
 
 // Videos are H.264 mp4 transcoded from the HEVC .mov originals -- HEVC in a
@@ -31,6 +33,7 @@ const slides = [
 ]
 
 export default function EchoAssist() {
+  const project = findProject('echoassist')
   return (
     <>
       <Background />
@@ -43,6 +46,7 @@ export default function EchoAssist() {
               <span key={t} className="tag is-dark">{t}</span>
             ))}
           </div>
+          <p className="project-meta">{project.date}</p>
         </header>
 
         <div className="project-grid">
@@ -53,7 +57,7 @@ export default function EchoAssist() {
               EchoAssist captions live conversations on an iPhone and labels each speaker as they talk, built for people who are deaf or hard of hearing. Most captioning tools send audio to a server, which rules them out for a doctor's appointment or anything private. EchoAssist runs entirely on-device.
             </p>
             <p>
-              Two Core ML models stream against a shared audio clock (Parakeet for speech recognition, Sortformer for diarization) joined by timestamp overlap so each caption arrives already attributed, ~0.6s behind real time; developing this system without drift was hard but worth it. Saved transcripts can also be summarized and translated into six languages. My team built it in six weeks in Everyone Can Code Chicago, an Apple and City of Chicago program, placing top 12 of 56 teams judged by Apple engineers.
+              Two Core ML models stream against a shared audio clock (Parakeet for speech recognition, Sortformer for diarization) joined by timestamp overlap so each caption arrives already attributed, ~0.6s behind real time; developing this system without drift was hard but worth it. Saved transcripts can also be summarized and translated into six languages. My team built it in six weeks in <a href="https://www.eccchicago.org/" target="_blank" rel="noreferrer">Everyone Can Code Chicago</a>, an Apple and City of Chicago program, placing top 12 of 56 teams judged by Apple engineers.
             </p>
 
             <div className="project-links">
@@ -66,6 +70,8 @@ export default function EchoAssist() {
             </div>
           </div>
         </div>
+
+        <ProjectNav slug="echoassist" />
       </section>
 
       <Footer />
