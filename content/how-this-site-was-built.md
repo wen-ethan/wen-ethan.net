@@ -1,7 +1,7 @@
 ---
 title: How This Site Was Built
 date: September 2026
-tags: Web, React, Meta
+tags: Web, React, HTMLL/CSS
 back_to: /writing
 back_label: Back to writing
 ---
@@ -19,36 +19,86 @@ back_label: Back to writing
   The history here is the README's version history, expanded slightly.
 -->
 
-## Four versions {#overview}
+## Overview {#overview}
 
-This site has been rebuilt four times. Each rebuild came from learning something new and wanting to do the previous version better, so the history of the site is also a fairly honest record of what I knew about the web at each point. None of the versions were planned as stepping stones. They just turned out that way.
+This site has been redesigned and rebuilt four times, with each rebuild stemming from learning a new technique and wanting to implement it myself; in this way, the history of this site is also a fairly honest record of what I knew about web development at each point. I never set out to build any of them as practice for the next one; that only became evident in hindsight.
 
-The current site is the fourth, and the first one where the rebuild was not a redesign. The look is the third version's; only the way it is put together changed.
+The current implementation of the website is its fourth iteration, and incidentally the first version where my rebuild did not coincide with a complete redesign (I ultimately chose to  keep the third version's design and layout, but upgrade the underlying technology).
 
-## Raw HTML and CSS {#v1}
+## v1: Raw HTML and CSS {#v1}
 
-The first version was a handful of HTML files and one stylesheet. It was functional and rough, and its main value was that it forced me to learn how a page is actually structured: what the document is, how the cascade works, why a layout breaks when the viewport shrinks. It was not a good site, but nothing in it was hidden from me either.
+The first iteration of my website was simply a handful of HTML files, stylized with the new.css framework. Although it was pretty rough around the edges, it was functional enough, and ultimately helped me learn how web pages are actually structured. Honestly, it was not a very good site, but I was still proud to call it my own.
 
-## Bootstrap {#v2}
+```figure-row
+src: /writing/colophon/v1-home-1024.png
+alt: v1's home page: a black page with a heading, a nav line, and two short lists
+caption: v1, mid-2024. The whole home page.
+---
+src: /writing/colophon/v1-projects-1024.png
+alt: The first version's projects page, two headings on a black page
+caption: v1's projects page. Two headings, no links yet.
+```
 
-The second version was built in Bootstrap Studio. It looked cleaner almost immediately, which was the point, and it cost me ownership of the result. The WYSIWYG workflow and the plug-a-class-in nature of the framework meant the site felt assembled rather than made. When something did not look right I was searching for the class that would fix it, not understanding why it was wrong. I fell out of love with it quickly and never finished it.
+## v2: Bootstrap {#v2}
 
-## Back to HTML and CSS {#v3}
+One day, I had seen a friend configuring their own website with Bootstrap Studio, using its WYSIWYG workflow to build up a beautiful website with not that much effort. As a result, I decided to completely scrap my original site in favor of rebuilding it in Bootstrap Studio. Although it ended up looking much cleaner almost immediately, it ultimately cost me ownership of the result; the WYSIWYG workflow that had drawn me into using it began to make the site feel more like I had assembled it, rather than built it myself. I fell out of love with it quickly and never finished it.
 
-During a break I threw the Bootstrap version out and redesigned the site from scratch in plain HTML and CSS, deliberately without frameworks or shortcuts. I wanted to own every design decision and understand what was happening at each step. That is where the current visual language comes from: the dark, layered background, the translucent glass surfaces, the floating pill navigation, one typeface. This became the definitive version of the site and everything since has been measured against it.
+```figure
+src: /writing/colophon/v2-home-fold.png
+alt: The Bootstrap version's landing section with a dark navbar and a centred heading
+caption: v2, mid-2024, above the fold. Bootstrap Studio made it look finished before it was.
+```
 
-## React and Vite {#v4}
+```figure
+src: /writing/colophon/v2-home.png
+alt: The full Bootstrap version home page, one long scroll with About, Fun Facts, Skills, and Projects sections
+caption: The full v2 home page. Everything lived on one page; the Projects and Skills pages on that branch are blank.
+```
 
-After picking up React, I rebuilt the third version as a faithful port. Same look, same feel, same pages, now as components. React Router handles navigation cleanly, and Bulma provides a small set of layout utilities without the opinionated behaviour that had put me off Bootstrap. The constraint I set was that nothing about the design should change just because the tooling did, and it mostly held.
+## v3: Return to HTML and CSS {#v3}
 
-Since the port, the site has kept changing in ways that are less visible. The background used to be a video, then an image, and is now a procedural SVG drawn at load time, because a full-screen gradient in an SVG dithers into a visible grid on desktop engines and the fix was to move the colour into CSS. The project pages grew from one shared layout into a data-driven list with prev and next links between them. And the long-form writeups, including this one, are written in Markdown and compiled into React components by a small Python script, so the prose lives in a text file and the layout lives in one template.
+During a break, I finally scrapped the Bootstrap version and took it upon myself to redesign the website from the ground up, using pure HTML and CSS (since that was all I was comfortable with at the time), without using any frameworks or shortcuts. With this redesign, I wanted to own every design decision and understand what was happening with each component, and how they came together to create a cohesive page. It is here that the current visual design language originates from: inspired by Apple's Liquid Glass and the way modern mobile interfaces lean on transparency, I settled on a dark, layered background with translucent glass surfaces floating over it, a pill-shaped navigation bar, and a single typeface throughout. This ultimately became the definitive version of the site, with all changes made since being measured against it.
+
+```figure
+src: /writing/colophon/v3-home-fold.jpg
+alt: The third version's home page, a name and one line over a purple video background with a floating pill nav
+caption: v3, early 2026. The layered background, the glass surfaces, and the pill nav all start here.
+```
+
+```figure-row
+src: /writing/colophon/v3-projects-fold.jpg
+alt: The third version's projects page with large glass cards
+caption: v3's projects page.
+---
+src: /writing/colophon/v3-project-page-fold.jpg
+alt: A v3 project detail page with a carousel on the left and text on the right
+caption: A v3 project page.
+```
+
+## v4: React and Vite {#v4}
+
+After joining clubs on campus and picking up React, I ported my website over to using React, keeping the same overall look and feel, but breaking every repeated piece of the page (the nav, the cards, the carousel, the footer) into its own component instead of copying the same HTML across every file. React Router handles navigation cleanly, and Bulma provides a small set of layout utilities without the opinionated behaviour that had put me off Bootstrap. My main constraint with this version was that the overall design of the site should not change just because the underlying tooling did, which mostly held.
+
+```figure-row
+src: /writing/colophon/v4-home-fold.jpg
+alt: The current home page, visually the same as v3 with buttons and social links added
+caption: v4, the current site; built to look the same as v3.
+---
+src: /writing/colophon/v4-projects-fold.jpg
+alt: The current projects page
+caption: The current projects page.
+```
+
+Since this major port, the site has continue to change and evolve in less visible ways. For example, the background used to be a royalty-free video, which was then changed to a single frame from this video, and ultimately became a procedural SVG drawn at load time (a full-screen gradient in an SVG dithers into a visible grid on desktop engines, and as such required moving the colour into CSS). In addition, the project pages grew from one shared layout for all projects into a data-driven list with previous and next links between them. Long-form writeups (like the one you're reading right now!) are written in Markdown before being compiled into React components by a small Python script, such that the prose lives in a text file and the layout lives in one template.
 
 ## What it runs on {#stack}
 
-- **React 18** for the components and **Vite** for the dev server and build.
-- **React Router** for client-side routing. Vercel rewrites every path to `index.html`, so deep links work on a refresh.
-- **Bulma** for a handful of layout and spacing utilities; almost all of the styling is hand-written CSS.
-- **Inter** as the only typeface.
-- **Vercel** for hosting, deploying on every push to `main`.
+For thos curious, here's what the current website is built upon:
 
-The source is on [GitHub](https://github.com/wen-ethan/wen-ethan.github.io). The repository name is a leftover from when it was hosted on GitHub Pages.
+- **React 18** handles all of the components, with **Vite** running the dev server and builds (the main appeal of Vite was that I never had to think about it).
+- **React Router** takes care of navigation on the client side; since the site is just a single page under the hood, Vercel writes every path back to `index.html`, allowing page links and refreshes to land on the right page, rather than a 404. 
+- While **Bulma** is still being used, it's mainly only for a handful of layout and spacing utilities; almost everything you actually see is hand-written CSS, carried over from v3.
+- **Inter** is the only typeface on the site, and I have yet to find a reason to add a second.
+- **Vercel** hosts everything and redeploys on every push to `main`.
+
+The source is on [GitHub](https://github.com/wen-ethan/wen-ethan.net), if you'd like to check it out!
