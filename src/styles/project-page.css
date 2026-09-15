@@ -118,6 +118,21 @@
     line-height: 1.65;
 }
 
+/* Inline links in project prose, matching .blog-body links. Scoped to <p>
+   so the pill buttons below the text are untouched. */
+.project-content p a {
+    color: white;
+    text-decoration: underline;
+    text-underline-offset: 0.15em;
+    text-decoration-color: rgba(255, 255, 255, 0.4);
+    transition: text-decoration-color 0.15s ease;
+}
+
+.project-content p a:hover {
+    color: white;
+    text-decoration-color: white;
+}
+
 .project-links a {
     display: inline-flex;
     align-items: center;
