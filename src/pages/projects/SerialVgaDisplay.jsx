@@ -3,6 +3,8 @@ import Background from '../../components/Background'
 import Nav from '../../components/Nav'
 import Footer from '../../components/Footer'
 import Carousel from '../../components/Carousel'
+import ProjectNav from '../../components/ProjectNav'
+import { findProject } from '../../data/projects'
 import '../../styles/project-page.css'
 
 // First slide doubles as the Projects page card image. The demo is transcoded
@@ -26,6 +28,7 @@ const slides = [
 ]
 
 export default function SerialVgaDisplay() {
+  const project = findProject('serial-vga-display')
   return (
     <>
       <Background />
@@ -38,6 +41,7 @@ export default function SerialVgaDisplay() {
               <span key={t} className="tag is-dark">{t}</span>
             ))}
           </div>
+          <p className="project-meta">{project.date}</p>
         </header>
 
         <div className="project-grid">
@@ -61,6 +65,8 @@ export default function SerialVgaDisplay() {
             </div>
           </div>
         </div>
+
+        <ProjectNav slug="serial-vga-display" />
       </section>
 
       <Footer />

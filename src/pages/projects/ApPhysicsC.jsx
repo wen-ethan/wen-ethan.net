@@ -3,6 +3,8 @@ import Background from '../../components/Background'
 import Nav from '../../components/Nav'
 import Footer from '../../components/Footer'
 import Carousel from '../../components/Carousel'
+import ProjectNav from '../../components/ProjectNav'
+import { findProject } from '../../data/projects'
 import '../../styles/project-page.css'
 
 const slides = [
@@ -13,6 +15,7 @@ const slides = [
 ]
 
 export default function ApPhysicsC() {
+  const project = findProject('ap-physics-c')
   return (
     <>
       <Background />
@@ -25,6 +28,7 @@ export default function ApPhysicsC() {
               <span key={t} className="tag is-dark">{t}</span>
             ))}
           </div>
+          <p className="project-meta">{project.date}</p>
         </header>
 
         <div className="project-grid">
@@ -50,6 +54,8 @@ export default function ApPhysicsC() {
             </div>
           </div>
         </div>
+
+        <ProjectNav slug="ap-physics-c" />
       </section>
 
       <Footer />

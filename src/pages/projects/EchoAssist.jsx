@@ -3,6 +3,8 @@ import Background from '../../components/Background'
 import Nav from '../../components/Nav'
 import Footer from '../../components/Footer'
 import Carousel from '../../components/Carousel'
+import ProjectNav from '../../components/ProjectNav'
+import { findProject } from '../../data/projects'
 import '../../styles/project-page.css'
 
 // Videos are H.264 mp4 transcoded from the HEVC .mov originals -- HEVC in a
@@ -31,6 +33,7 @@ const slides = [
 ]
 
 export default function EchoAssist() {
+  const project = findProject('echoassist')
   return (
     <>
       <Background />
@@ -43,6 +46,7 @@ export default function EchoAssist() {
               <span key={t} className="tag is-dark">{t}</span>
             ))}
           </div>
+          <p className="project-meta">{project.date}</p>
         </header>
 
         <div className="project-grid">
@@ -66,6 +70,8 @@ export default function EchoAssist() {
             </div>
           </div>
         </div>
+
+        <ProjectNav slug="echoassist" />
       </section>
 
       <Footer />

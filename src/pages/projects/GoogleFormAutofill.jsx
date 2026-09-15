@@ -3,6 +3,8 @@ import Background from '../../components/Background'
 import Nav from '../../components/Nav'
 import Footer from '../../components/Footer'
 import Carousel from '../../components/Carousel'
+import ProjectNav from '../../components/ProjectNav'
+import { findProject } from '../../data/projects'
 import '../../styles/project-page.css'
 
 const slides = [
@@ -12,6 +14,7 @@ const slides = [
 ]
 
 export default function GoogleFormAutofill() {
+  const project = findProject('google-form-autofill')
   return (
     <>
       <Background />
@@ -24,6 +27,7 @@ export default function GoogleFormAutofill() {
               <span key={t} className="tag is-dark">{t}</span>
             ))}
           </div>
+          <p className="project-meta">{project.date}</p>
         </header>
 
         <div className="project-grid">
@@ -49,6 +53,8 @@ export default function GoogleFormAutofill() {
             </div>
           </div>
         </div>
+
+        <ProjectNav slug="google-form-autofill" />
       </section>
 
       <Footer />

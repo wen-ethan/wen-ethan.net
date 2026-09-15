@@ -3,6 +3,8 @@ import Background from '../../components/Background'
 import Nav from '../../components/Nav'
 import Footer from '../../components/Footer'
 import Carousel from '../../components/Carousel'
+import ProjectNav from '../../components/ProjectNav'
+import { findProject } from '../../data/projects'
 import '../../styles/project-page.css'
 
 const slides = [
@@ -15,6 +17,7 @@ const slides = [
 ]
 
 export default function SpatialComputing() {
+  const project = findProject('spatial-computing')
   return (
     <>
       <Background />
@@ -27,6 +30,7 @@ export default function SpatialComputing() {
               <span key={t} className="tag is-dark">{t}</span>
             ))}
           </div>
+          <p className="project-meta">{project.date}</p>
         </header>
 
         <div className="project-grid">
@@ -47,6 +51,8 @@ export default function SpatialComputing() {
             </div>
           </div>
         </div>
+
+        <ProjectNav slug="spatial-computing" />
       </section>
 
       <Footer />
