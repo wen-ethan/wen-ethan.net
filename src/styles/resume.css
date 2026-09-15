@@ -31,14 +31,14 @@
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   color: rgba(255, 255, 255, 0.9);
-  opacity: 0.9;
-  transition: opacity 0.15s ease, transform 0.15s ease;
+  transition: transform 0.15s ease, background 0.15s ease, color 0.15s ease;
 }
 
+/* Hover matches .hero-cta in main.css, like every other glass pill. */
 .resume-download:hover {
-    opacity: 1;
-    color: white;
-    transform: translateY(-1px);
+  background: rgba(255, 255, 255, 0.28);
+  color: white;
+  transform: translateY(-1px);
 }
 
 /* Resume content */
