@@ -35,11 +35,15 @@ This site has gone through several redesigns and one rebuild, each iteration dri
 
 ## Pages
 
-- **Home** — Landing page with a brief intro
-- **About** — Background and interests
-- **Projects** — Featured work up top, smaller side projects below
+- **Home** — Landing page with a brief intro, links onward, and contact
+- **About** — Background, a "right now" snapshot, and contact links
+- **Projects** — Featured work up top, smaller side projects below; cards carry a date and a badge when a writeup exists
+- **Writing** — Index of long-form posts
 - **Resume** — Education, projects, experience, activities, honors, and skills, with a PDF download
-- **Project pages** — One detail page per project at `/projects/<slug>`, plus long-form writeups at `/projects/<slug>/writeup`
+- **Project pages** — One detail page per project at `/projects/<slug>`, with prev/next links between them, plus long-form writeups at `/projects/<slug>/writeup`
+- **404** — Catch-all for unknown paths
+
+Project metadata lives in `src/data/projects.js` and the list of posts in `src/data/writing.js`. Writeups are authored as Markdown in `content/` and compiled to components by `tools/build-writeup.py`.
 
 ---
 
