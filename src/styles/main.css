@@ -163,6 +163,77 @@ body {
     opacity: 0.85;
 }
 
+/* ---------- Hero actions (Home, 404) ----------
+   The landing page used to be name + one line with no way onward except
+   noticing the nav pill. These give it a path and a way to get in touch. */
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.6rem;
+    margin-top: 2rem;
+}
+
+.hero-cta {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.6rem 1.2rem;
+    border-radius: 999px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    text-decoration: none;
+    transition: transform 0.15s ease, background 0.15s ease;
+}
+
+.hero-cta.primary {
+    background: rgba(255, 255, 255, 0.22);
+    color: white;
+}
+
+.hero-cta:hover {
+    transform: translateY(-1px);
+    background: rgba(255, 255, 255, 0.28);
+    color: white;
+}
+
+.hero-links {
+    justify-content: center;
+    margin-top: 1.75rem;
+}
+
+/* ---------- Social links ----------
+   Shared by About, Home and the Footer. Diameter is set inline by the
+   component so each placement can size it. */
+.social-links {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.social-links a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.14);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transition: transform 0.15s ease, background 0.15s ease;
+}
+
+.social-links a:hover {
+    transform: translateY(-1px);
+    background: rgba(255, 255, 255, 0.22);
+}
+
+.social-links .icon {
+    fill: white;
+    display: block;
+}
+
 /* ---------- Page spacing system ---------- */
 .page-section {
     padding-left: calc(1.25rem + env(safe-area-inset-left));
@@ -407,10 +478,85 @@ body {
     text-wrap: pretty;
 }
 
+/* ---------- Writing list ----------
+   Same footprint as the Resume/Projects cards -- 1200px column, 40px radius,
+   0.12 glass -- so the three list pages read as one system. Text only. */
+.writing-section {
+    position: relative;
+    z-index: 2;
+}
+
+.writing-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.writing-card {
+    display: block;
+    padding: 1.5rem 2.25rem;
+    border-radius: 40px;
+    text-decoration: none;
+    color: inherit;
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.writing-card:hover {
+    background: rgba(255, 255, 255, 0.18);
+    transform: translateY(-2px);
+}
+
+.writing-card-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    line-height: 1.25;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 0.5rem;
+    text-wrap: balance;
+}
+
+.writing-card-summary {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.7);
+    max-width: 70ch;
+    margin-bottom: 1rem;
+    text-wrap: pretty;
+}
+
+.writing-card-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+}
+
+.writing-card-tags .tag {
+    border-radius: 999px;
+}
+
+@media (max-width: 768px) {
+    .writing-card {
+        padding: 1.25rem 1.5rem;
+    }
+
+    .writing-card-title {
+        font-size: 1.25rem;
+    }
+}
+
 /* ---------- Footer ---------- */
 .page-footer {
     position: relative;
     z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
     /* Bottom inset matters for home-screen installs, where the page really does
        extend under the home indicator (in a browser tab the insets are 0). */
     padding: 2.5rem calc(1.25rem + env(safe-area-inset-right))
@@ -418,4 +564,8 @@ body {
     text-align: center;
     font-size: 0.85rem;
     color: rgba(255, 255, 255, 0.6);
+}
+
+.footer-links a {
+    background: rgba(255, 255, 255, 0.1);
 }
