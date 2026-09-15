@@ -261,6 +261,27 @@ body {
     }
 }
 
+/* Glass page shells (About, project pages, writeups) get the same side
+   gutters as .page-section, so a tablet does not show the Resume cards
+   inset 2rem and the next page's shell running edge to edge. `max-width`
+   with `margin: auto` alone gave zero gutter on anything under 1100px.
+   The max() centres the shell once the viewport is wider than it. */
+.about-shell,
+.project-shell,
+.blog-shell {
+    max-width: 1100px;
+    margin-inline: max(2rem, calc((100% - 1100px) / 2));
+}
+
+@media (max-width: 767px) {
+    .about-shell,
+    .project-shell,
+    .blog-shell {
+        margin-inline: calc(1.25rem + env(safe-area-inset-left))
+                       calc(1.25rem + env(safe-area-inset-right));
+    }
+}
+
 /* ---------- Projects grid ---------- */
 .projects-section {
     position: relative;
