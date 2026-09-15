@@ -17,7 +17,9 @@ html {
        background, painted beneath everything including .bg.
 
        Measured against the current composition: the midpoint of its top edge
-       (#7a5a89) and bottom edge (#2d1a44), since one colour serves both ends. */
+       (#7a5a89) and bottom edge (#2d1a44), since one colour serves both ends.
+       On iOS 26+ this is only the fallback -- see the .bg-edge strips below,
+       which give each bar its own colour. */
     background-color: #543a67;
     -webkit-text-size-adjust: 100%;
 }
@@ -89,6 +91,70 @@ body {
     display: block;
     width: 100%;
     height: 100%;
+}
+
+/* ---------- iOS Safari chrome tint ----------
+   In a Safari tab the page never renders under the status bar; Safari paints
+   it as a flat colour. Since iOS 26 that colour
+   is sampled from a position:fixed element touching the viewport edge --
+   theme-color and the html background are only fallbacks. Tested on iOS 26.5
+   and 27.0 simulators: backdrop-filter on the strip, or scrolling, does NOT
+   make real page pixels show through, so a matched flat colour is the ceiling.
+
+   Two things together remove the visible seam: each strip carries the mean
+   colour of its own edge of the gradient (measured from a device screenshot:
+   top #785585, bottom #3d204c), and .bg::after fades the first ~110px of the
+   page into that same colour so bar and page meet without an edge.
+
+   The strips are static divs in index.html, after #root: nested inside .bg
+   Safari ignored them. Geometry was found by measurement, not the published
+   heuristics -- the top strip must sit flush at top:0 (hanging partly outside
+   the viewport lost to the fixed nav pill and fell back to the html colour),
+   while the bottom one may hang outside with ~4px showing. z-index keeps
+   them above the nav in the sampler's eyes; they are too thin to see, and
+   the fade starts in the same colour anyway.
+
+   -webkit-touch-callout is iOS-only, so none of this reaches desktop or
+   Android, where there is no bar to match. */
+.bg-edge {
+    display: none;
+}
+
+@supports (-webkit-touch-callout: none) {
+    .bg-edge {
+        display: block;
+        position: fixed;
+        left: 0;
+        right: 0;
+        z-index: 10;
+        pointer-events: none;
+    }
+
+    .bg-edge-top {
+        top: 0;
+        height: 8px;
+        background-color: #785585;
+    }
+
+    /* Deliberately present on every page. Without a fixed element at the
+       bottom edge Safari floats its toolbar as Liquid Glass and scrolls the
+       page underneath it; with one, the toolbar is a solid band and content
+       stops at it. The solid band is the chosen look -- it matches the top. */
+    .bg-edge-bottom {
+        bottom: -10px;
+        height: 14px;
+        background-color: #3d204c;
+    }
+
+    .bg::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        background-image:
+            linear-gradient(to bottom, #785585 0, #785585 4px, rgba(120, 85, 133, 0) 110px),
+            linear-gradient(to top, #3d204c 0, #3d204c 4px, rgba(61, 32, 76, 0) 110px);
+    }
 }
 
 /* ---------- Navigation ---------- */
