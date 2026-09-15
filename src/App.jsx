@@ -1,10 +1,14 @@
 import { Routes, Route, useLocation } from 'react-router-dom'
 import { useLayoutEffect, useRef } from 'react'
 import { Analytics } from '@vercel/analytics/react'
+import usePageMeta from './hooks/usePageMeta'
 import Home from './pages/Home'
 import About from './pages/About'
 import Projects from './pages/Projects'
 import Resume from './pages/Resume'
+import Writing from './pages/Writing'
+import NotFound from './pages/NotFound'
+import Colophon from './pages/writing/Colophon'
 import SerialVgaDisplay from './pages/projects/SerialVgaDisplay'
 import SerialVgaWriteup from './pages/projects/SerialVgaWriteup'
 import EchoAssist from './pages/projects/EchoAssist'
@@ -12,7 +16,11 @@ import Relay from './pages/projects/Relay'
 import SpatialComputing from './pages/projects/SpatialComputing'
 import ApPhysicsC from './pages/projects/ApPhysicsC'
 import GoogleFormAutofill from './pages/projects/GoogleFormAutofill'
-import BlogTemplate from './pages/projects/BlogTemplate'
+
+function PageMeta() {
+  usePageMeta()
+  return null
+}
 
 function ScrollToTop() {
   const { pathname } = useLocation()
@@ -44,11 +52,14 @@ export default function App() {
   return (
     <>
       <ScrollToTop />
+      <PageMeta />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/projects" element={<Projects />} />
         <Route path="/resume" element={<Resume />} />
+        <Route path="/writing" element={<Writing />} />
+        <Route path="/writing/how-this-site-was-built" element={<Colophon />} />
         <Route path="/projects/serial-vga-display" element={<SerialVgaDisplay />} />
         <Route path="/projects/serial-vga-display/writeup" element={<SerialVgaWriteup />} />
         <Route path="/projects/echoassist" element={<EchoAssist />} />
@@ -56,7 +67,7 @@ export default function App() {
         <Route path="/projects/spatial-computing" element={<SpatialComputing />} />
         <Route path="/projects/ap-physics-c" element={<ApPhysicsC />} />
         <Route path="/projects/google-form-autofill" element={<GoogleFormAutofill />} />
-        <Route path="/projects/blog-template" element={<BlogTemplate />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
       <Analytics />
     </>
