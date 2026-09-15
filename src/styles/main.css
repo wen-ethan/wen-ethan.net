@@ -269,6 +269,33 @@ body {
     color: rgba(255, 255, 255, 0.9);
 }
 
+/* Date line above a title, on cards and on the project page header. Cards
+   had no timeframe before, so the progression across projects was invisible. */
+.project-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.8rem;
+    letter-spacing: 0.02em;
+    color: rgba(255, 255, 255, 0.5);
+    margin-bottom: 0.35rem;
+}
+
+/* Marks a card whose project has a long-form writeup, so the post is
+   discoverable from the index rather than only from inside the project. */
+.project-badge {
+    display: inline-block;
+    padding: 0.1rem 0.55rem;
+    border-radius: 999px;
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.85);
+    background: rgba(255, 255, 255, 0.14);
+}
+
 .project-description {
     font-size: 1rem;
     line-height: 1.4;
