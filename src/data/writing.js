@@ -12,8 +12,8 @@ export const writing = [
     title: 'How This Site Was Built',
     date: 'September 2026',
     tags: ['Web', 'React', 'Meta'],
-    summary: 'Four versions of this site, from raw HTML to Bootstrap and back, and why the React port kept the hand-rolled design instead of replacing it.',
-    draft: true,
+    summary: 'A journey though the various iterations of this site, from raw HTML to Bootstrap and back.',
+    draft: false,
   },
   {
     path: '/projects/serial-vga-display/writeup',
