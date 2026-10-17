@@ -81,26 +81,27 @@ export default function Resume() {
                 </div>
 
                 <div className="resume-entry">
+                  <strong>Everyone Can Code Chicago</strong> <span className="resume-meta">Chicago, IL</span><br />
+                  <span className="resume-meta">Software Engineer Intern, Sept 2026 - Present · iOS App Dev & ML Program, Jun 2026 - Jul 2026</span>
+                  <ul>
+                    <li>App Accelerator (one of 24 selected): building an iOS app on a small product team through App Store launch.</li>
+                    <li>Summer program: advanced to the second round of the Apple-judged showcase, top 12 of 56 teams.</li>
+                  </ul>
+                </div>
+
+                <div className="resume-entry">
+                  <strong>Princeton University</strong> <span className="resume-meta">COS 126 Undergraduate Course Assistant</span><br />
+                  <span className="resume-meta">Sept 2026 - Present</span>
+                  <ul>
+                    <li>Code reviews and debugging help for students in Princeton's introductory computer science course.</li>
+                  </ul>
+                </div>
+
+                <div className="resume-entry">
                   <strong>Hoagie Club</strong> <span className="resume-meta">HoagieHelp Developer</span><br />
                   <span className="resume-meta">Feb 2026 - Present</span>
                   <ul>
                     <li>Building frontend components in Next.js, React, TypeScript, and Tailwind for a student academic support platform, with contributions to Python backend services.</li>
-                  </ul>
-                </div>
-
-                <div className="resume-entry">
-                  <strong>Everyone Can Code Chicago</strong> <span className="resume-meta">iOS App Dev & Machine Learning Program · Chicago, IL</span><br />
-                  <span className="resume-meta">Jun 2026 - Jul 2026</span>
-                  <ul>
-                    <li>Six-week paid cohort program run in partnership between Apple and the City of Chicago; advanced to the second round of the showcase competition, top 12 of 56 teams, judged by Apple engineers.</li>
-                  </ul>
-                </div>
-
-                <div className="resume-entry">
-                  <strong>Project:VISION, Inc.</strong> <span className="resume-meta">Digital Creators Intern (Spatial Computing) · Chicago, IL</span><br />
-                  <span className="resume-meta">Jun 2025 - Jul 2025</span>
-                  <ul>
-                    <li>Built AR prototypes in Spline and Reality Composer for Apple Vision Pro; selected to present at the 2025 Everyone Can Code Chicago Showcase.</li>
                   </ul>
                 </div>
               </div>
@@ -160,7 +161,7 @@ export default function Resume() {
                 </div>
                 <strong>Spoken</strong>
                 <div className="resume-skills">
-                  {['English (native)', 'Cantonese (native)', 'Mandarin (professional proficiency)'].map(s => (
+                  {['English (native)', 'Cantonese (native)', 'Mandarin (conversational)'].map(s => (
                     <span key={s}>{s}</span>
                   ))}
                 </div>
